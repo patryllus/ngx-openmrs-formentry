@@ -31,6 +31,7 @@ import { ControlRelationsFactory } from './form-factory/control-relations.factor
 import { EncounterAdapter } from './value-adapters/encounter.adapter';
 import { PersonAttribuAdapter } from './value-adapters/person-attribute.adapter';
 import { OrderValueAdapter } from './value-adapters/order.adapter';
+import { PersonIdentifierAdapter } from './value-adapters/person-identifier.adapter';
 import { ObsAdapterHelper } from './value-adapters/obs-adapter-helper';
 import { ObsValueAdapter } from './value-adapters/obs.adapter';
 import { NgxRemoteSelectModule } from '../components/ngx-remote-select/ngx-remote-select.module';
@@ -94,7 +95,8 @@ import { CustomComponentWrapperModule } from '../components/custom-component-wra
     EncounterAdapter,
     PersonAttribuAdapter,
     OrderValueAdapter,
-    DebugModeService
+    DebugModeService,
+    PersonIdentifierAdapter
   ],
   exports: [
     FormRendererComponent,

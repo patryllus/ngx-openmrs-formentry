@@ -8,6 +8,7 @@ import { ObsValueAdapter } from './obs.adapter';
 import { OrderValueAdapter } from './order.adapter';
 
 import * as moment_ from 'moment';
+import { PersonIdentifierAdapter } from './person-identifier.adapter';
 
 const moment = moment_;
 
@@ -15,7 +16,8 @@ const moment = moment_;
 export class EncounterAdapter implements ValueAdapter {
   constructor(
     public ordersAdapter: OrderValueAdapter,
-    public obsAdapter: ObsValueAdapter
+    public obsAdapter: ObsValueAdapter,
+    public identifierAdapter: PersonIdentifierAdapter
   ) {}
 
   populateForm(form: Form, payload) {
@@ -26,6 +28,9 @@ export class EncounterAdapter implements ValueAdapter {
     }
     if (Array.isArray(payload.obs)) {
       this.obsAdapter.populateForm(form, payload.obs);
+    }
+    if (Array.isArray(payload.identifier)) {
+      this.identifierAdapter.populateForm(form, payload.identifier);
     }
   }
 
@@ -84,6 +89,9 @@ export class EncounterAdapter implements ValueAdapter {
     payload['obs'] = this.obsAdapter.generateFormPayload(form) || [];
 
     payload['orders'] = this.ordersAdapter.generateFormPayload(form) || [];
+
+    
+
 
     return payload;
   }

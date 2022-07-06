@@ -1,5 +1,8 @@
 import * as _ from 'lodash';
 import { Injectable } from "@angular/core";
+import * as moment_ from 'moment';
+
+const moment = moment_;
 @Injectable()
 export class JsExpressionHelper {
   calcBMI(height, weight) {
@@ -9,6 +12,32 @@ export class JsExpressionHelper {
     }
     return height && weight ? parseFloat(r) : null;
   }
+
+  calcEDD(lmpDate) {
+    let edd;
+    if (lmpDate instanceof Date) {
+      edd = moment(lmpDate, "DD-MMM-YYYY").add(280, 'days').format('DD-MMM-YYYY');
+    }
+    return lmpDate ? edd : null ;
+  }
+
+  calcGravida(parityTerm: number, parityAbortion: number) {
+    let gravida = 0;
+    if(parityTerm && parityAbortion) {
+      gravida = parityTerm + parityAbortion + 1;
+    }
+
+    return gravida;
+  }
+
+  calcDaysSinceCircumcisionProcedure(val) {
+    let daySinceLastCircumcision;
+    if(val) {
+      var timeDiff = Math.abs((new Date).getTime() - Date.parse(val));
+      daySinceLastCircumcision = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    }
+
+  } 
 
   calcBSA(height: number, weight: number) {
     let result;

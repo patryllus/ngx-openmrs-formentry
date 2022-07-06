@@ -287,7 +287,7 @@
 							"tag": "afe-content-display",
 							"url": "http://localhost:4200/lib/web-components.bundled.js?module",
 							"module": "true",
-							"detail": "This is custom component within a section it is displayed at the top of the section"
+							"detail": "This is custom patrick component within a section it is displayed at the top of the section"
 						}
 					],
 					"isExpanded": "true",
@@ -306,6 +306,16 @@
 									"type": "date"
 								}
 							]
+						},
+						{
+							"type": "personIdentifier",
+							"label": "TEst Internal",
+							"id": "internalCon",
+							"required": "true",
+							"questionOptions": {
+								"rendering": "text",
+								"identifierType":"personIdentifieruuid"
+							}
 						},
 						{
 							"type": "encounterProvider",
