@@ -287,7 +287,7 @@
 							"tag": "afe-content-display",
 							"url": "http://localhost:4200/lib/web-components.bundled.js?module",
 							"module": "true",
-							"detail": "This is custom patrick component within a section it is displayed at the top of the section"
+							"detail": "This is custom component within a section it is displayed at the top of the section"
 						}
 					],
 					"isExpanded": "true",
@@ -308,14 +308,25 @@
 							]
 						},
 						{
-							"type": "personIdentifier",
-							"label": "TEst Internal",
-							"id": "internalCon",
-							"required": "true",
-							"questionOptions": {
-								"rendering": "text",
-								"identifierType":"personIdentifieruuid"
-							}
+							"label": "Identifier Addition Section",
+							"isExpanded": "true",
+							"questions": [
+								{
+									"label": "Patient Custom Unique Number (CCC Number)",
+									"type": "personIdentifier",
+									"id": "uniquePatientNumber",
+									"questionOptions": {
+										"rendering": "text",
+										"customControl": true,
+										"identifierType": "05ee9cf4-7242-4a17-b4d4-00f707265c8a"
+									},
+									"customControlConfig": {
+										"tag": "afe-content-text",
+										"url": "http://localhost:4200/lib/web-components.bundled.js?module",
+										"module": "true"
+									}
+								}
+							]
 						},
 						{
 							"type": "encounterProvider",

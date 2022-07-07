@@ -71,10 +71,10 @@ console.log("payload", this.identifierPayload)
                       question.extras &&
                       question.extras.type === 'personIdentifier'
                     ) {
-                      console.log("node",formNode?.children[node])
-                      console.log("node",formNode.children[node].control.value)
+                      console.log("node",formNode)
+                      console.log("node control value",formNode.children[node].control.value)
                       console.log("identifierType",question.extras)
-                      this.identifierPayload = {identifierType:question.extras.questionOptions.identifierType,value:formNode.children[node].control.value}
+                      this.identifierPayload = {identifierType:question.extras.questionOptions.identifierType,identifier:formNode.children[node].control.value}
                       this.FormIdentifierNodes.push(formNode);
                     }
                   }

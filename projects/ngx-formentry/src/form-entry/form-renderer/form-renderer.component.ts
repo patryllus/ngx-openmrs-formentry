@@ -51,7 +51,7 @@ export class FormRendererComponent implements OnInit, OnChanges {
   }
 
   public ngOnInit() {
-    console.log('WE ARE LIVE!')
+    console.log('USING LOCAL FORMENTRY!')
     this.setUpRemoteSelect();
     this.setUpFileUpload();
     this.loadLabels();
