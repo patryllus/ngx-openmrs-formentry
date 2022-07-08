@@ -351,9 +351,9 @@ export class AppComponent implements OnInit {
     if (!this.form.valid) {
       this.form.showErrors = false;
       const payload = this.encAdapter.generateFormPayload(this.form);
-      console.log(JSON.stringify(payload));
+     
       const payload2 = this.personIdentifierAdaptor.generateFormPayload(this.form);
-      console.log("identifier",JSON.stringify(payload2));
+     
       // Alternative is to populate for each as shown below
       // // generate obs payload
       // let payload = this.obsValueAdapater.generateFormPayload(this.form);

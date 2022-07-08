@@ -12,7 +12,7 @@ export class PersonIdentifierAdapter implements ValueAdapter {
   generateFormPayload(form: Form) {
     this.FormIdentifierNodes = []
     this._findTestOrderQuestionNodes(form.rootNode);
-console.log("payload", this.identifierPayload)
+
 
   return this.identifierPayload
     //return this.generateNodePayload(form.rootNode);
@@ -27,8 +27,7 @@ console.log("payload", this.identifierPayload)
       throw new Error('Expected an array of identifiers');
     }
 
-    const node = this._findTestOrderQuestionNodes(rootNode);
-    console.log("Hey", node)
+    const node = this._findTestOrderQuestionNodes(rootNode); 
     this.FormIdentifierNodes.forEach((node) => {
       payload.forEach((element) => {
         if (
@@ -71,9 +70,7 @@ console.log("payload", this.identifierPayload)
                       question.extras &&
                       question.extras.type === 'personIdentifier'
                     ) {
-                      console.log("node",formNode)
-                      console.log("node control value",formNode.children[node].control.value)
-                      console.log("identifierType",question.extras)
+                      
                       this.identifierPayload = {identifierType:question.extras.questionOptions.identifierType,identifier:formNode.children[node].control.value}
                       this.FormIdentifierNodes.push(formNode);
                     }
